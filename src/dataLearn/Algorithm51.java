@@ -219,7 +219,7 @@ public class Algorithm51 {
 		// resolveNum();
 		// strIdentify();
 		// numAdd();
-		// wanShu();
+		 wanShu();
 		testBall();
 	}
 
