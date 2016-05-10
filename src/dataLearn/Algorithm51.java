@@ -233,6 +233,70 @@ public class Algorithm51 {
 		}
 	}
 
+	public static void moneyAward() {
+		/**
+		 * 题目：企业发放的奖金根据利润提成。 利润(I)低于或等于10万元时，奖金可提10%；
+		 * 利润高于10万元，低于20万元时，低于10万元的部分按10%提成，
+		 * 高于10万元的部分，可可提成7.5%；20万到40万之间时，高于20万元的部分，可提成5%；
+		 * 40万到60万之间时高于40万元的部分，可提成3%； 60万到100万之间时，高于60万元的部分，可提成1.5%，
+		 * 高于100万元时，超过100万元的部分按1%提成，从键盘输入当月利润I，求应发放奖金总数？
+		 * 1.程序分析：请利用数轴来分界，定位。注意定义时需把奖金定义成长整型。
+		 *
+		 */
+
+		double rate1 = 0.1, rate2 = 0.075, rate3 = 0.05, rate4 = 0.03, rate5 = 0.014, rate6 = 0.01;
+		long reward = 0;
+		System.out.println("请输入利润：");
+		Scanner sc = new Scanner(System.in);
+		long money = sc.nextLong();
+		if (money >= 0 && money <= 100000) {
+			reward = (long) (money * rate1);
+		} else if (money <= 200000) {
+			reward = (long) (100000 * rate1 + (money - 100000) * rate2);
+		} else if (money <= 400000) {
+			reward = (long) (100000 * rate1 + 100000 * rate2 + (money - 200000)
+					* rate3);
+		} else if (money <= 600000) {
+			reward = (long) (10000 * rate1 + 100000 * rate2 + 200000 * rate3 + (money - 400000)
+					* rate4);
+		} else if (money <= 1000000) {
+			reward = (long) (10000 * rate1 + 100000 * rate2 + 200000 * rate3
+					+ 200000 * rate4 + (money - 6000000) * rate5);
+		} else {
+			reward = (long) (10000 * rate1 + 100000 * rate2 + 200000 * rate3
+					+ 200000 * rate4 + 400000 * rate5 + (money - 1000000)
+					* rate6);
+		}
+		System.out.println("奖金为：" + reward);
+	}
+	
+	public static void testDay(){
+		/**
+		 * 题目：输入某年某月某日，判断这一天是这一年的第几天？ 1.程序分析：以3月5日为例，应该先把前两个月的加起来， 然后再加上5天即本年的第几天，
+		 * 特殊情况，闰年且输入月份大于3时需考虑多加一天。
+		 * 
+		 */
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("请输入年：");
+		int year = sc.nextInt();
+		System.out.println("请输入月：");
+		int month = sc.nextInt();
+		System.out.println("请输入日：");
+		int day = sc.nextInt();
+		int[] n = {31,28,31,30,31,30,31,30,31,30,31,30};
+		if(year%400==0||(year%4==0&&year%100!=0)){
+			n[1]=29;
+		}
+		//System.out.println(n[1]);
+		int date=0;
+		for(int i =0;i<month-1;i++){
+			date+=n[i];
+		}
+		date  +=day;
+		System.out.println(date);
+	}
+
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		// rabbit();
@@ -243,7 +307,9 @@ public class Algorithm51 {
 		// numAdd();
 		// wanShu();
 		// testBall();
-		testTN();
+//		testTN();
+		//moneyAward();
+		testDay();
 	}
 
 }
