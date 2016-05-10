@@ -269,11 +269,11 @@ public class Algorithm51 {
 		}
 		System.out.println("奖金为：" + reward);
 	}
-	
-	public static void testDay(){
+
+	public static void testDay() {
 		/**
-		 * 题目：输入某年某月某日，判断这一天是这一年的第几天？ 1.程序分析：以3月5日为例，应该先把前两个月的加起来， 然后再加上5天即本年的第几天，
-		 * 特殊情况，闰年且输入月份大于3时需考虑多加一天。
+		 * 题目：输入某年某月某日，判断这一天是这一年的第几天？ 1.程序分析：以3月5日为例，应该先把前两个月的加起来，
+		 * 然后再加上5天即本年的第几天， 特殊情况，闰年且输入月份大于3时需考虑多加一天。
 		 * 
 		 */
 
@@ -284,17 +284,96 @@ public class Algorithm51 {
 		int month = sc.nextInt();
 		System.out.println("请输入日：");
 		int day = sc.nextInt();
-		int[] n = {31,28,31,30,31,30,31,30,31,30,31,30};
-		if(year%400==0||(year%4==0&&year%100!=0)){
-			n[1]=29;
+		int[] n = { 31, 28, 31, 30, 31, 30, 31, 30, 31, 30, 31, 30 };
+		if (year % 400 == 0 || (year % 4 == 0 && year % 100 != 0)) {
+			n[1] = 29;
 		}
-		//System.out.println(n[1]);
-		int date=0;
-		for(int i =0;i<month-1;i++){
-			date+=n[i];
+		// System.out.println(n[1]);
+		int date = 0;
+		for (int i = 0; i < month - 1; i++) {
+			date += n[i];
 		}
-		date  +=day;
+		date += day;
 		System.out.println(date);
+	}
+
+	public static void testCompare() {
+		/**
+		 * 题目：输入三个整数x,y,z，请把这三个数由小到大输出。 1.程序分析：我们想办法把最小的数放到x上，
+		 * 先将x与y进行比较，如果x>y则将x与y的值进行交换， 然后再用x与z进行比较，如果x>z则将x与z的值进行交换，这样能使x最小。
+		 */
+
+		Scanner sc = new Scanner(System.in);
+		System.out.println("请输入第一个数：");
+		int x = sc.nextInt();
+		System.out.println("请输入第二个数：");
+		int y = sc.nextInt();
+		System.out.println("请输入第三个数：");
+		int z = sc.nextInt();
+		int temp;
+		if (x > y) {
+			temp = x;
+			x = y;
+			y = temp;
+		}
+		if (x > z) {
+			temp = x;
+			x = z;
+			z = temp;
+		}
+		if (y > z) {
+			temp = y;
+			y = z;
+			z = temp;
+			;
+		}
+		System.out.println(x + "<" + y + "<" + z);
+	}
+
+	public static void nine() {
+		/**
+		 * 题目：输出9*9口诀。 1.程序分析：分行与列考虑，共9行9列，i控制行，j控制列。
+		 */
+
+		for (int i = 1; i < 10; i++) {
+			for (int j = 1; j <= i; j++) {
+				System.out.print(i + "*" + j + "=" + i * j + "\t");
+			}
+			System.out.println();
+		}
+	}
+
+	public static void monkeyEatPeach() {
+		/**
+		 * 题目：猴子吃桃问题：猴子第一天摘下若干个桃子，当即吃了一半，还不瘾，又多吃了一个 第二天早上又将剩下的桃子吃掉一半，又多吃了一个
+		 * 。以后每天早上都吃了前一天剩下的一半零一个。到第10天早上想再吃时，见只剩下一个桃子了。求第一天共摘了多少。
+		 * 1.程序分析：采取逆向思维的方法，从后往前推断。
+		 */
+		int peach = 1;
+		for (int i = 0; i < 10; i++) {
+			peach = (peach + 1) * 2;
+		}
+		System.out.println(peach);
+	}
+
+	public static void lingXing() {
+		int[] arr = { 1, 3, 6, 8, 6, 3, 1 };
+		for (int i = 0; i < 4; i++) {
+			for (int j = 0; j < arr[i]; j++) {
+				System.out.print("*");
+			}
+			System.out.println("");
+		}
+		for (int i = 4; i < arr.length; i++) {
+			for (int j = arr[i]; j < 8; j++) {
+				System.out.print(" ");
+			}
+			for (int j = 0; j < arr[i]; j++) {
+				System.out.print("*");
+			}
+			System.out.println("");
+		}
+
 	}
 
 	public static void main(String[] args) {
@@ -307,9 +386,13 @@ public class Algorithm51 {
 		// numAdd();
 		// wanShu();
 		// testBall();
-//		testTN();
-		//moneyAward();
-		testDay();
+		// testTN();
+		// moneyAward();
+		// testDay();
+		// testCompare();
+		// nine();
+		//monkeyEatPeach();
+		lingXing();
 	}
 
 }
