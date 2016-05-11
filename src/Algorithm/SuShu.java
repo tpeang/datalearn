@@ -14,20 +14,30 @@ public class SuShu {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		int j = 0 ;
-        int flag = 0;
-        for(int i=2;i<100;i++){
-            j = (int) (Math.sqrt(i));
-            for(int k = 2; k<=j;k++){
-                if(i%k == 0){
-                    flag = 1;
-                }
-            }
-            if(flag == 0){
-                System.out.println(i);
-            }
-            flag = 0;
-        }
+		for (int i = 2; i < 100; i++) {
+			for (int k = 2; k <= i; k++) {
+				if (i % k == 0 && i != k) {
+					break;
+				}
+				if (i % k == 0 && i == k) {
+					System.out.println(i);
+				}
+			}
+		}
+//		int j = 0;
+//		int flag = 0;
+//		for (int i = 2; i < 100; i++) {
+//			j = (int) (Math.sqrt(i));
+//			for (int k = 2; k <= j; k++) {
+//				if (i % k == 0) {
+//					flag = 1;
+//				}
+//			}
+//			if (flag == 0) {
+//				System.out.println(i);
+//			}
+//			flag = 0;
+//		}
 
 	}
 
