@@ -1,11 +1,12 @@
 /**
- * 
+ * 题目：输入两个正整数m和n，求其最大公约数和最小公倍数。 1.程序分析：利用辗除法。
  */
 package Algorithm;
 
 /**
  * @author Ian
- * @date 2016年5月11日上午10:17:41 题目：输入两个正整数m和n，求其最大公约数和最小公倍数。 1.程序分析：利用辗除法。
+ * @date 2016年5月11日上午10:17:41 
+ * 
  */
 public class ComonDivisor {
 	public static int s1 = 56;
